@@ -1,3 +1,4 @@
 streamlit
-pillow
+supabase
+Pillow
 python-dateutil
