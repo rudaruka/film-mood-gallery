@@ -53,22 +53,19 @@ def pil_to_bytes(img: Image.Image, ext=".jpg"):
     else:
         img = img.convert("RGB")
         # 품질을 90 -> 85로 약간 낮춰 파일 크기를 최적화
-        img.save(buf, format="JPEG", quality=85) 
+        img.save(buf, format="JPEG", quality=85)  
     buf.seek(0)
     return buf.read()
 
 
 def get_public_url(path: str) -> str:
     """Supabase 스토리지의 공개 URL을 가져옵니다."""
-    # 최신 supabase-py 클라이언트는 보통 문자열 URL을 직접 반환합니다.
     try:
         url = supabase.storage.from_(BUCKET).get_public_url(path)
-        # 응답이 딕셔너리 형태일 경우를 대비한 방어 코드
         if isinstance(url, dict) and "publicURL" in url:
             return url["publicURL"]
         return str(url)
     except Exception as e:
-        # URL 획득 실패 시 빈 문자열 반환
         st.warning(f"URL 획득 실패: {e}")
         return ""
 
@@ -86,7 +83,6 @@ with st.sidebar.expander("설정", expanded=True):
     show_captions = st.checkbox("캡션 표시", True)
     show_dates = st.checkbox("날짜 표시", True)
 
----
 
 # ========== 업로드 ==========
 st.header("사진 업로드")
@@ -144,9 +140,10 @@ if uploaded and st.button("업로드 & 저장"):
                  st.error("파일 롤백에 실패했습니다. 스토리지에서 수동으로 파일을 삭제해야 합니다.")
     
 
+# 🚨 오류 수정 부분: Python 코드 영역에서 Markdown 수평선(---)을 st.markdown("---")로 변경
+st.markdown("---") 
 
 # ========== 갤러리 표시 ==========
-st.markdown("---")
 st.header("📸 갤러리")
 
 # DB에서 사진 목록 가져오기
