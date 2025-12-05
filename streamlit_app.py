@@ -12,7 +12,7 @@ st.set_page_config(page_title="감성 사진 갤러리 (Supabase)", layout="wide
 
 # ========== 환경/클라이언트 ==========
 SUPABASE_URL = st.secrets.get("https://qkbzjcsfwvzzrdlvkmtc.supabase.co")
-SUPABASE_KEY = st.secrets.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrYnpqY3Nmd3Z6enJkbHZrbXRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4NTQwODEsImV4cCI6MjA4MDQzMDA4MX0.rxpGHyMocUVcne6dWSmE_5d0VkxShPIydu0RHIxLoEw
+SUPABASE_KEY = st.secrets.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrYnpqY3Nmd3Z6enJkbHZrbXRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4NTQwODEsImV4cCI6MjA4MDQzMDA4MX0.rxpGHyMocUVcne6dWSmE_5d0VkxShPIydu0RHIxLoEw"
 ")
 if not SUPABASE_URL or not SUPABASE_KEY:
     st.error("Supabase URL/KEY가 설정되어 있지 않습니다.")
